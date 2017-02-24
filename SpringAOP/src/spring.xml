@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+<aop:aspectj-autoproxy />
+	
+  	<bean name="triangle" class="org.hari.javabrains.model.Triangle">
+  		<property name="name" value="Triangle Name"/>
+ 	</bean>
+	
+	<bean name="circle" class="org.hari.javabrains.model.Circle">
+		<property name="name" value="Circle Name"></property>
+	</bean>
+	
+	<bean name="shapeService" class="org.hari.javabrains.service.ShapeService" autowire="byName">
+	</bean>
+	
+	 <bean name="loggingAspect" class="org.hari.javabrains.aspect.LoggingAspect" /> 
+	<!-- <bean name="loggingAspectXMLDemoBean" class="org.hari.javabrains.aspect.LoggingAspectXMLDemo" />
+	
+	<aop:config>
+		<aop:aspect id="loggingAspectXMLDemoBean" ref="loggingAspectXMLDemoBean" />
+		<aop:pointcut id="justForTriangle" expression="execution(* get*())"/>
+		<aop:around method="triangleAdvice" pointcut-ref="justForTriangle" />
+	</aop:config>
+	-->
+</beans>
